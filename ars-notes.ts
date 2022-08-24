@@ -1,1 +1,1 @@
-const f = () => {};
+const add = (a, b): number => { return a + b };
