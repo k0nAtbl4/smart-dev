@@ -12,7 +12,7 @@ interface User {
     rank: number
     submitTasks: number
     submission: TaskSubmission[]
-}
+    }
 type Code = {
     text: string
     language: 'js' | 'ts'
