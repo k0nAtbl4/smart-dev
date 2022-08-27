@@ -43,7 +43,7 @@ export class User {
     points: number;
 
     @Column()
-    rnak: number;
+    rank: number;
 
     @Column()
     submitTasks: number

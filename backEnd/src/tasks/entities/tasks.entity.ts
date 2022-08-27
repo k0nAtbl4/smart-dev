@@ -42,6 +42,9 @@ export class Tasks {
     tests: Code;
 
     @Column()
+    startCode: Code
+
+    @Column()
     name: string;
 
     @Column()
