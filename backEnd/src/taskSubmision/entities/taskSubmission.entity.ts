@@ -20,23 +20,30 @@
 
 // }
 
-import { Task } from "src/tasks/entities/tasks.entity";
+import { Tasks } from "src/tasks/entities/tasks.entity";
+import { User } from "src/user/entities/user.entity";
 import { Column, Entity, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+
+type taskSubmissionStatus = 'succuess' | 'fail'
+type Code = {
+    text: string
+    language: 'js' | 'ts'
+}
 
 @Entity()
 export class TaskSubmission {
 
     @Column()
-    user: Users;
+    user: User;
 
     @Column()
-    task: Task;
+    task: number // Task id, because only id memory < all task;
 
     @Column()
     status: taskSubmissionStatus;
 
     @Column()
-    code: string;
+    code: Code;
 
     @Column()
     opinion?: string

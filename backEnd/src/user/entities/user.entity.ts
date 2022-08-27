@@ -11,6 +11,7 @@
 //     submitTasks: number
 //     submission: TaskSubmission[]
 //     }
+import { Tasks } from "src/tasks/entities/tasks.entity";
 import { TaskSubmission } from "src/taskSubmision/entities/taskSubmission.entity";
 import { Column, Entity, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
@@ -50,6 +51,6 @@ export class User {
     @OneToMany(type => User, (user) => user.submission, {eager: true})
     submission: TaskSubmission[]
 
-    @OneToMany(type => Task, (task) => task.users , {eager: true})
+    @OneToMany(type => Tasks, (task) => task.users , {eager: true})
     users: TaskSubmission[]
 }

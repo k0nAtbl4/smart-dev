@@ -25,16 +25,21 @@
 import { TaskSubmission } from "src/taskSubmision/entities/taskSubmission.entity";
 import { Column, Entity, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
+type taskSubmissionStatus = 'succuess' | 'fail'
+type Code = {
+    text: string
+    language: 'js' | 'ts'
+}
 @Entity()
-export class Task {
+export class Tasks {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @OneToMany(type => Task, (task) => task.users , {eager: true})
+    @OneToMany(type => Tasks, (task) => task.users , {eager: true})
     users: TaskSubmission[]
 
-    @Column
-    users: TaskSubmission[]
+    @Column()
+    tests: Code;
 
     @Column()
     name: string;
@@ -42,8 +47,6 @@ export class Task {
     @Column()
     description: string;
 
-    // @ManyToOne(type => Project, project => project.tasks, { eager: true })
-    // project: Project;
 }
 // type Image = string
 // type Role = 'Admin' | 'Moderator' | 'User' 
