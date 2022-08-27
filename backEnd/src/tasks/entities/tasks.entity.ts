@@ -22,6 +22,7 @@
 // @OneToMany(() => Photo, (photo) => photo.user)
 // photos: Photo[]
 
+import { TaskSubmission } from "src/taskSubmision/entities/taskSubmission.entity";
 import { Column, Entity, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -29,8 +30,10 @@ export class Task {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @OneToMany(() => Task, (task) => task.users)
-    users: Tasksubmission[]
+    @OneToMany(type => Task, (task) => task.users , {eager: true})
+    users: TaskSubmission[]
+
+    @Column
     users: TaskSubmission[]
 
     @Column()
