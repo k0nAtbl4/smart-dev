@@ -1,5 +1,5 @@
 type Image = string
-type Role = 'Admin' | 'Moderator' | 'User' 
+type Role = 'Admin' | 'Moderator' | 'User'
 interface User {
     name: string
     surname: string
@@ -12,7 +12,7 @@ interface User {
     rank: number
     submitTasks: number
     submission: TaskSubmission[]
-    }
+}
 type Code = {
     text: string
     language: 'js' | 'ts'
@@ -26,11 +26,11 @@ type TaskSubmission = {
     opinion?: Opinion
 }
 type TaskSubmissionStatus = 'success' | 'fail'
-interface Task{
-    users: TaskSubmission[]
+interface Task {
+    submissions: TaskSubmission[]
     tests: Code
     description: string
     level: number
     startCode: Code[]
-    
+
 }
